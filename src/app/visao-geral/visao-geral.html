@@ -1,0 +1,10 @@
+<section>
+    <h2>Visão geral</h2>
+    <ul>
+        @for (total of totais; track total.area) {
+        <li [ngStyle]="{ 'font-weight': total.quantidade === 0 ? 'bold' : 'normal' }">
+            {{ total.area }}: {{ total.quantidade }}
+        </li>
+        }
+    </ul>
+</section>
