@@ -3,8 +3,14 @@
     <ul>
         @for (total of totais; track total.area) {
         <li [ngStyle]="{ 'font-weight': total.quantidade === 0 ? 'bold' : 'normal' }">
-            {{ total.area }}: {{ total.quantidade }}
+            <app-cartao-total [area]="total.area" [quantidade]="total.quantidade"
+                [ativo]="areaSelecionada() === total.area" (selecionado)="areaSelecionada.set(total.area)">
+            </app-cartao-total>
         </li>
         }
     </ul>
+
+    @if (areaSelecionada(); as area) {
+    <p>Área selecionada: {{ area }}</p>
+    }
 </section>

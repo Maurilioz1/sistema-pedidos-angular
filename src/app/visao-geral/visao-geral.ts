@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { NgStyle } from '@angular/common';
+import { CartaoTotal } from './cartao-total/cartao-total';
 
 @Component({
-  imports: [NgStyle],
+  imports: [NgStyle, CartaoTotal],
   selector: 'app-visao-geral',
   styleUrl: './visao-geral.css',
   templateUrl: './visao-geral.html',
@@ -13,4 +14,6 @@ export class VisaoGeral {
     { area: 'Produtos', quantidade: 5 },
     { area: 'Pedidos', quantidade: 0 },
   ];
+
+  protected readonly areaSelecionada = signal<string | null>(null);
 }
